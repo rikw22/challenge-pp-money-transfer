@@ -14,7 +14,7 @@ public class Account {
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    People owner;
+    Person owner;
 
     BigDecimal balance;
 }
