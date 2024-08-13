@@ -3,6 +3,7 @@ package org.example.ppmoneytransfer.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.example.ppmoneytransfer.dto.TransferRequest;
 import org.example.ppmoneytransfer.dto.TransferResponse;
 import org.example.ppmoneytransfer.service.MoneyTransferService;
@@ -16,8 +17,8 @@ import java.util.logging.Logger;
 
 @RestController
 @Tag(name = "Money Transfer")
+@Slf4j
 public class MoneyTransferController {
-    private static final Logger LOGGER = Logger.getLogger(MoneyTransferController.class.getName());
     private final MoneyTransferService moneyTransferService;
 
     public MoneyTransferController(MoneyTransferService moneyTransferService) {
