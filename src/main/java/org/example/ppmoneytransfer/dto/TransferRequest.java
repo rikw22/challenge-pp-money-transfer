@@ -1,4 +1,4 @@
-package org.example.ppmoneytransfer.transfer.dto;
+package org.example.ppmoneytransfer.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.DecimalMin;

@@ -1,4 +1,4 @@
-package org.example.ppmoneytransfer.transfer.vo;
+package org.example.ppmoneytransfer.vo;
 
 import org.example.ppmoneytransfer.entity.Account;
 import org.example.ppmoneytransfer.entity.Person;

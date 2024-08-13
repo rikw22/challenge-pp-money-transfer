@@ -1,7 +1,6 @@
 package org.example.ppmoneytransfer.controller;
 
-import org.example.ppmoneytransfer.transfer.controller.MoneyTransferController;
-import org.example.ppmoneytransfer.transfer.dto.TransferRequest;
+import org.example.ppmoneytransfer.dto.TransferRequest;
 import org.example.ppmoneytransfer.service.MoneyTransferService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

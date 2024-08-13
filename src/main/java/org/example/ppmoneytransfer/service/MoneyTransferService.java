@@ -4,9 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.ppmoneytransfer.exceptions.BusinessRuleException;
 import org.example.ppmoneytransfer.entity.Person;
 import org.example.ppmoneytransfer.repository.PersonRepository;
-import org.example.ppmoneytransfer.transfer.dto.TransferResponse;
-import org.example.ppmoneytransfer.transfer.validations.ITransferValidation;
-import org.example.ppmoneytransfer.transfer.vo.TransferRequestVO;
+import org.example.ppmoneytransfer.dto.TransferResponse;
+import org.example.ppmoneytransfer.validations.ITransferValidation;
+import org.example.ppmoneytransfer.vo.TransferRequestVO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
