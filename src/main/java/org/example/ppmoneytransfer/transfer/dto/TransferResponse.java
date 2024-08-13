@@ -1,4 +1,4 @@
-package org.example.ppmoneytransfer.dto;
+package org.example.ppmoneytransfer.transfer.dto;
 
 public record TransferResponse (
     Boolean success,

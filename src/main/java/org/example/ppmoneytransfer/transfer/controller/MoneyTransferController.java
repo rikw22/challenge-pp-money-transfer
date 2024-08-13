@@ -1,19 +1,17 @@
-package org.example.ppmoneytransfer.controller;
+package org.example.ppmoneytransfer.transfer.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.example.ppmoneytransfer.dto.TransferRequest;
-import org.example.ppmoneytransfer.dto.TransferResponse;
 import org.example.ppmoneytransfer.service.MoneyTransferService;
+import org.example.ppmoneytransfer.transfer.dto.TransferRequest;
+import org.example.ppmoneytransfer.transfer.dto.TransferResponse;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.logging.Logger;
 
 @RestController
 @Tag(name = "Money Transfer")

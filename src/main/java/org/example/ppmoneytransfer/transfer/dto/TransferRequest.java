@@ -1,4 +1,4 @@
-package org.example.ppmoneytransfer.dto;
+package org.example.ppmoneytransfer.transfer.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.DecimalMin;
@@ -25,4 +25,5 @@ public record TransferRequest(
         @NotNull
         Integer payee
 ) {
+
 }
