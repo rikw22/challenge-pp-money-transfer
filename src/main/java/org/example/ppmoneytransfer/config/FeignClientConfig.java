@@ -1,4 +1,4 @@
-package org.example.ppmoneytransfer.commons;
+package org.example.ppmoneytransfer.config;
 
 import feign.Retryer;
 import org.example.ppmoneytransfer.client.AuthorizationServiceClient;

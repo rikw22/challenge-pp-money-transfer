@@ -1,4 +1,4 @@
-package org.example.ppmoneytransfer.commons;
+package org.example.ppmoneytransfer.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.ppmoneytransfer.exceptions.BusinessRuleException;
