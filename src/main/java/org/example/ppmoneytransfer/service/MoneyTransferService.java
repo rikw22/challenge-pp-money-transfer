@@ -2,7 +2,8 @@ package org.example.ppmoneytransfer.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.ppmoneytransfer.exceptions.BusinessRuleException;
-import org.example.ppmoneytransfer.entity.Person;
+import org.example.ppmoneytransfer.domain.Person;
+import org.example.ppmoneytransfer.repository.AccountRepository;
 import org.example.ppmoneytransfer.repository.PersonRepository;
 import org.example.ppmoneytransfer.dto.TransferResponse;
 import org.example.ppmoneytransfer.validations.ITransferValidation;

@@ -1,7 +1,6 @@
 package org.example.ppmoneytransfer.vo;
 
-import org.example.ppmoneytransfer.entity.Account;
-import org.example.ppmoneytransfer.entity.Person;
+import org.example.ppmoneytransfer.domain.Person;
 
 import java.math.BigDecimal;
 

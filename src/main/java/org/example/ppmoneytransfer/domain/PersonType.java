@@ -1,4 +1,4 @@
-package org.example.ppmoneytransfer.entity;
+package org.example.ppmoneytransfer.domain;
 
 public enum PersonType {
     RegularUser,

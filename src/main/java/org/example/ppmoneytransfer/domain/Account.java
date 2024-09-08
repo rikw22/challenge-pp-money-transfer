@@ -1,4 +1,4 @@
-package org.example.ppmoneytransfer.entity;
+package org.example.ppmoneytransfer.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;

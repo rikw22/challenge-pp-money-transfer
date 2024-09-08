@@ -1,6 +1,6 @@
 package org.example.ppmoneytransfer.validations;
 
-import org.example.ppmoneytransfer.entity.PersonType;
+import org.example.ppmoneytransfer.domain.PersonType;
 import org.example.ppmoneytransfer.exceptions.BusinessRuleException;
 import org.example.ppmoneytransfer.vo.TransferRequestVO;
 import org.springframework.stereotype.Component;
