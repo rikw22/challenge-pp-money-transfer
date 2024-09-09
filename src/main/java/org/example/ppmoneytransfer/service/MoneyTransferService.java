@@ -7,7 +7,7 @@ import org.example.ppmoneytransfer.domain.Person;
 import org.example.ppmoneytransfer.domain.Wallet;
 import org.example.ppmoneytransfer.dto.TransferResponse;
 import org.example.ppmoneytransfer.exceptions.BusinessRuleException;
-import org.example.ppmoneytransfer.repository.AccountRepository;
+import org.example.ppmoneytransfer.repository.WalletRepository;
 import org.example.ppmoneytransfer.repository.PersonRepository;
 import org.example.ppmoneytransfer.validations.ITransferValidation;
 import org.example.ppmoneytransfer.vo.TransferRequestVO;
@@ -22,15 +22,15 @@ import java.util.Set;
 @Slf4j
 public class MoneyTransferService {
     private final PersonRepository personRepository;
-    private final AccountRepository accountRepository;
+    private final WalletRepository walletRepository;
     private final Set<ITransferValidation> transferValidations;
     private final NotificationServiceClient notificationServiceClient;
 
     public MoneyTransferService(
-            PersonRepository personRepository, AccountRepository accountRepository,
+            PersonRepository personRepository, WalletRepository walletRepository,
             Set<ITransferValidation> transferValidations, NotificationServiceClient notificationServiceClient) {
         this.personRepository = personRepository;
-        this.accountRepository = accountRepository;
+        this.walletRepository = walletRepository;
         this.transferValidations = transferValidations;
         this.notificationServiceClient = notificationServiceClient;
     }
@@ -55,36 +55,36 @@ public class MoneyTransferService {
         transferValidations.forEach(rule -> rule.validate(transferRequest));
 
         ////////////////////
-        Optional<Wallet> payerAccount = accountRepository.findAccountByOwner(transferRequest.payer());
-        if (payerAccount.isEmpty()) {
+        Optional<Wallet> payerWallet = walletRepository.findWalletByOwner(transferRequest.payer());
+        if (payerWallet.isEmpty()) {
             throw new BusinessRuleException("The payer doesn't have an account");
         }
 
         ////////////////////
-        Optional<Wallet> payeeAccount = accountRepository.findAccountByOwner(transferRequest.payee());
-        if (payeeAccount.isEmpty()) {
+        Optional<Wallet> payeeWallet = walletRepository.findWalletByOwner(transferRequest.payee());
+        if (payeeWallet.isEmpty()) {
             throw new BusinessRuleException("The payee doesn't have an account");
         }
 
         ////////////////////
-        if (payerAccount.get().getBalance().compareTo(transferRequest.value()) < 0) {
+        if (payerWallet.get().getBalance().compareTo(transferRequest.value()) < 0) {
             throw new BusinessRuleException("Insufficient funds to complete the transaction");
         }
 
         ////////////////////
-        payerAccount.get().setBalance(
-                payerAccount.get().getBalance().subtract(transferRequest.value())
+        payerWallet.get().setBalance(
+                payerWallet.get().getBalance().subtract(transferRequest.value())
         );
-        accountRepository.save(payerAccount.get());
+        walletRepository.save(payerWallet.get());
 
 
         //////////////////
-        payeeAccount.get().setBalance(
-                payeeAccount.get().getBalance().add(transferRequest.value())
+        payeeWallet.get().setBalance(
+                payeeWallet.get().getBalance().add(transferRequest.value())
         );
-        accountRepository.save(payeeAccount.get());
+        walletRepository.save(payeeWallet.get());
 
-        NotificationServiceNotifyRequest notification = new NotificationServiceNotifyRequest(payeeAccount.get().getOwner().getEmail(), "Transferred successfully");
+        NotificationServiceNotifyRequest notification = new NotificationServiceNotifyRequest(payeeWallet.get().getOwner().getEmail(), "Transferred successfully");
         notificationServiceClient.notifyWithRetry(notification);
 
         log.info("Transferred successfully");
