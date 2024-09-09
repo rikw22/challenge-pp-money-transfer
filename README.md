@@ -3,6 +3,10 @@
 
 This project it's a Simplified payment platform code challenge. It allows users to deposit and transfer money between each other. There are two types of users: `regular users` and `merchants`. Both have wallets with money and can transfer between them.
 
+## TODOs
+- [ ] Fix tests
+- [ ] Add transaction entity
+
 ### Requirements
 
 Business rules that are important for the Simplified Payment Method to work:
