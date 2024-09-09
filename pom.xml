@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.2</version>
+		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.example</groupId>
@@ -18,7 +18,10 @@
 		<license/>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<name>Ricardo Walter</name>
+			<url>https://github.com/rikw22</url>
+		</developer>
 	</developers>
 	<scm>
 		<connection/>
@@ -34,10 +37,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
 		</dependency>
 
 		<dependency>
@@ -75,10 +74,6 @@
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-mysql</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
