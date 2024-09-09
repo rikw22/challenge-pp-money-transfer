@@ -7,7 +7,8 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
-public class Account {
+@Table(name = "wallets")
+public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -17,5 +18,6 @@ public class Account {
     @JoinColumn(name = "owner_id")
     Person owner;
 
+    @Column(name = "balance", nullable  = false)
     BigDecimal balance;
 }
