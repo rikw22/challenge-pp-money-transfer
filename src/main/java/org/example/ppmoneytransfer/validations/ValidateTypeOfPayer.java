@@ -10,6 +10,10 @@ public class ValidateTypeOfPayer implements ITransferValidation {
 
     @Override
     public void validate(TransferRequestVO request) {
+        if(request.payer() == null){
+            throw new BusinessRuleException("Invalid payer");
+        }
+
         if(!request.payer().getType().equals(PersonType.RegularUser)){
             throw new BusinessRuleException("Only RegularUser can send money");
         }

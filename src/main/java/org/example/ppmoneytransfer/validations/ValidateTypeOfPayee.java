@@ -10,6 +10,10 @@ public class ValidateTypeOfPayee implements ITransferValidation {
 
     @Override
     public void validate(TransferRequestVO request) {
+        if(request.payee() == null){
+            throw new BusinessRuleException("Invalid payee");
+        }
+
         if(!request.payee().getType().equals(PersonType.Merchant)){
             throw new BusinessRuleException("Only Merchants can receive transfers");
         }
